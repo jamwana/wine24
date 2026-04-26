@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wine24 — Global Wine Intelligence Platform</title>
+  <meta name="description" content="The world's most comprehensive wine database. Beyond Wine-Searcher & Vivino. W.I.N.E.X six-dimensional evaluation system, narrative tasting framework, and 24 Terroir Summits.">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">WINE<span>24</span></a>
+  <ul class="nav-links">
+    <li><a href="#analyze">Analyze</a></li>
+    <li><a href="#summits">24 Summits</a></li>
+    <li><a href="#apostles">Apostles</a></li>
+    <li><a href="#lexicon">Lexicon</a></li>
+    <li><a href="#winex">W.I.N.E.X</a></li>
+    <li><a href="#compare">Compare</a></li>
+    <li><a href="#blind">Blind Tasting</a></li>
+    <li><a href="#investment">Investment</a></li>
+  </ul>
+  <div class="nav-lang">
+    <button class="active" onclick="setLang('en')">EN</button>
+    <button onclick="setLang('zh')">中文</button>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <h1 data-en="Beyond the Glass" data-zh="超越杯中之物">Beyond the Glass</h1>
+  <p data-en="The world's most comprehensive wine intelligence platform. Analyze any wine by country, region, variety, and blend ratio — powered by the W.I.N.E.X evaluation system." data-zh="全球最全面的葡萄酒智能平台。通过国家、产区、品种和混酿比例分析任何酒款 — 基于 W.I.N.E.X 评价体系驱动。">The world's most comprehensive wine intelligence platform. Analyze any wine by country, region, variety, and blend ratio — powered by the W.I.N.E.X evaluation system.</p>
+  <div class="hero-cta">
+    <a href="#analyze" class="btn btn-primary" data-en="Analyze a Wine" data-zh="品鉴分析">Analyze a Wine</a>
+    <a href="#summits" class="btn btn-outline" data-en="Explore 24 Summits" data-zh="探索24座风土">Explore 24 Summits</a>
+  </div>
+</section>
+
+<!-- Search Engine Section -->
+<section id="analyze" class="search-section">
+  <div class="search-container">
+    <h2 style="text-align:center;margin-bottom:2rem" data-en="Smart Tasting Engine" data-zh="智能品鉴引擎">Smart Tasting Engine</h2>
+    <div class="search-box">
+      <div class="search-row">
+        <div class="search-field">
+          <label data-en="Country" data-zh="国家">Country</label>
+          <select id="sel-country" onchange="updateRegions()">
+            <option value="" data-en="Select Country" data-zh="选择国家">Select Country</option>
+            <option value="france">France</option>
+            <option value="usa">United States</option>
+            <option value="italy">Italy</option>
+            <option value="spain">Spain</option>
+            <option value="australia">Australia</option>
+            <option value="china">China</option>
+            <option value="japan">Japan</option>
+            <option value="south-africa">South Africa</option>
+            <option value="georgia">Georgia</option>
+            <option value="lebanon">Lebanon</option>
+            <option value="argentina">Argentina</option>
+            <option value="chile">Chile</option>
+            <option value="germany">Germany</option>
+            <option value="portugal">Portugal</option>
+            <option value="new-zealand">New Zealand</option>
+            <option value="greece">Greece</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label data-en="Region" data-zh="产区">Region</label>
+          <select id="sel-region" onchange="updateSubregions()">
+            <option value="" data-en="Select Region" data-zh="选择产区">Select Region</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label data-en="Sub-Region" data-zh="子产区">Sub-Region</label>
+          <select id="sel-subregion">
+            <option value="" data-en="Select Sub-Region" data-zh="选择子产区">Select Sub-Region</option>
+          </select>
+        </div>
+      </div>
+      <div class="search-row">
+        <div class="search-field">
+          <label data-en="Primary Variety" data-zh="主要品种">Primary Variety</label>
+          <select id="sel-variety1">
+            <option value="" data-en="Select Variety" data-zh="选择品种">Select Variety</option>
+            <option value="cabernet-sauvignon">Cabernet Sauvignon</option>
+            <option value="merlot">Merlot</option>
+            <option value="pinot-noir">Pinot Noir</option>
+            <option value="cabernet-franc">Cabernet Franc</option>
+            <option value="syrah">Syrah / Shiraz</option>
+            <option value="chardonnay">Chardonnay</option>
+            <option value="sauvignon-blanc">Sauvignon Blanc</option>
+            <option value="riesling">Riesling</option>
+            <option value="sangiovese">Sangiovese</option>
+            <option value="tempranillo">Tempranillo</option>
+            <option value="marselan">Marselan (马瑟兰)</option>
+            <option value="cabernet-gernischt">Cabernet Gernischt (蛇龙珠)</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label data-en="Secondary Variety" data-zh="次要品种">Secondary Variety</label>
+          <select id="sel-variety2">
+            <option value="" data-en="Optional" data-zh="可选">Optional</option>
+            <option value="cabernet-sauvignon">Cabernet Sauvignon</option>
+            <option value="merlot">Merlot</option>
+            <option value="pinot-noir">Pinot Noir</option>
+            <option value="cabernet-franc">Cabernet Franc</option>
+            <option value="syrah">Syrah / Shiraz</option>
+            <option value="malbec">Malbec</option>
+            <option value="petit-verdot">Petit Verdot</option>
+            <option value="carmenere">Carménère</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label data-en="Vintage" data-zh="年份">Vintage</label>
+          <input type="number" id="sel-vintage" placeholder="e.g. 2018" min="1950" max="2026">
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="analyzeWine()" data-en="Analyze" data-zh="开始分析" style="width:100%;padding:1rem;font-size:1rem">Analyze</button>
+    </div>
+  </div>
+
+  <!-- Analysis Results -->
+  <div id="analysis-result" class="analysis-result">
+    <!-- Results populated by JS -->
+  </div>
+</section>
+
+<!-- 24 Terroir Summits -->
+<section id="summits" class="section">
+  <h2 style="text-align:center;margin-bottom:0.5rem" data-en="24 Terroir Summits" data-zh="24座风土巅峰">24 Terroir Summits</h2>
+  <p style="text-align:center;color:var(--text-secondary);margin-bottom:3rem" data-en="The world's finest wine terroirs, organized in four quadrants" data-zh="全球最优质的葡萄酒风土，四大象限分类">The world's finest wine terroirs, organized in four quadrants</p>
+
+  <div class="grid-2">
+    <!-- Quadrant I -->
+    <div class="card card-quadrant" style="border-left:4px solid var(--accent-gold)">
+      <div>
+        <h3 data-en="Quadrant I" data-zh="第一象限">Quadrant I</h3>
+        <span class="badge badge-gold" data-en="OLD WORLD CLASSICS" data-zh="旧世界经典">OLD WORLD CLASSICS</span>
+        <ul class="region-list">
+          <li>Burgundy, France</li>
+          <li>Bordeaux, France</li>
+          <li>Barolo, Italy</li>
+          <li>Rioja, Spain</li>
+          <li>Champagne, France</li>
+          <li>Mosel, Germany</li>
+        </ul>
+      </div>
+      <a href="#" class="btn btn-outline" style="margin-top:1rem;text-align:center" data-en="Explore" data-zh="探索">Explore</a>
+    </div>
+    <!-- Quadrant II -->
+    <div class="card card-quadrant" style="border-left:4px solid var(--accent-green)">
+      <div>
+        <h3 data-en="Quadrant II" data-zh="第二象限">Quadrant II</h3>
+        <span class="badge badge-green" data-en="NEW WORLD DISRUPTORS" data-zh="新世界破局">NEW WORLD DISRUPTORS</span>
+        <ul class="region-list">
+          <li>Napa Valley, USA</li>
+          <li>Paso Robles, USA</li>
+          <li>Oregon, USA</li>
+          <li>Barossa Valley, Australia</li>
+          <li>Marlborough, New Zealand</li>
+          <li>Mendoza, Argentina</li>
+        </ul>
+      </div>
+      <a href="#" class="btn btn-outline" style="margin-top:1rem;text-align:center" data-en="Explore" data-zh="探索">Explore</a>
+    </div>
+    <!-- Quadrant III -->
+    <div class="card card-quadrant" style="border-left:4px solid var(--accent-purple)">
+      <div>
+        <h3 data-en="Quadrant III" data-zh="第三象限">Quadrant III</h3>
+        <span class="badge" style="background:rgba(107,76,154,0.2);color:var(--accent-purple)" data-en="FRONTIER TERROIRS" data-zh="边缘风土">FRONTIER TERROIRS</span>
+        <ul class="region-list">
+          <li>Priorat, Spain</li>
+          <li>Santorini, Greece</li>
+          <li>Etna, Sicily</li>
+          <li>Canary Islands, Spain</li>
+          <li>Tannat, Uruguay</li>
+          <li>Styria, Slovenia</li>
+        </ul>
+      </div>
+      <a href="#" class="btn btn-outline" style="margin-top:1rem;text-align:center" data-en="Explore" data-zh="探索">Explore</a>
+    </div>
+    <!-- Quadrant IV -->
+    <div class="card card-quadrant" style="border-left:4px solid #00CED1">
+      <div>
+        <h3 data-en="Quadrant IV" data-zh="第四象限">Quadrant IV</h3>
+        <span class="badge" style="background:rgba(0,206,209,0.2);color:#00CED1" data-en="EMERGING POWERS & FUTURE" data-zh="新兴力量与未来">EMERGING POWERS & FUTURE</span>
+        <ul class="region-list">
+          <li>Ningxia, China (宁夏)</li>
+          <li>Shangri-La, China (香格里拉)</li>
+          <li>Yamanashi / Hokkaido, Japan</li>
+          <li>Stellenbosch, South Africa</li>
+          <li>Kakheti, Georgia (Qvevri)</li>
+          <li>Bekaa Valley, Lebanon</li>
+        </ul>
+      </div>
+      <a href="#" class="btn btn-outline" style="margin-top:1rem;text-align:center" data-en="Explore" data-zh="探索">Explore</a>
+    </div>
+  </div>
+</section>
+
+<!-- Apostles Section -->
+<section id="apostles" class="section-alt">
+  <div class="section-inner">
+    <h2 style="text-align:center;margin-bottom:0.5rem" data-en="The Twelve Apostles" data-zh="十二使徒">The Twelve Apostles</h2>
+    <p style="text-align:center;color:var(--text-secondary);margin-bottom:3rem" data-en="From 'Drops of God' — the iconic wines that defined a generation" data-zh="来自《神之水滴》——定义一代人的标志性酒款">From 'Drops of God' — the iconic wines that defined a generation</p>
+
+    <div class="apostles-grid">
+      <div class="apostle-card">
+        <div class="apostle-number">I</div>
+        <div class="apostle-content">
+          <h4 data-en="The Search" data-zh="寻觅">The Search</h4>
+          <p class="wine-name">Domaine Georges Roumier, Chambolle-Musigny 1er Cru Les Amoureuses</p>
+          <p>Burgundy · 2001</p>
+          <p class="price">~¥33,000 · ROI +288%</p>
+        </div>
+      </div>
+      <div class="apostle-card">
+        <div class="apostle-number">II</div>
+        <div class="apostle-content">
+          <h4 data-en="Mother" data-zh="母亲">Mother</h4>
+          <p class="wine-name">Château Palmer</p>
+          <p>Bordeaux Left Bank · 1999</p>
+          <p class="price">~¥2,800 · ROI +65%</p>
+        </div>
+      </div>
+      <div class="apostle-card">
+        <div class="apostle-number">III</div>
+        <div class="apostle-content">
+          <h4 data-en="Reunion" data-zh="团聚">Reunion</h4>
+          <p class="wine-name">Domaine Pégau, Châteauneuf-du-Pape Cuvée Da Capo</p>
+          <p>Rhône · 2000</p>
+          <p class="price">~¥4,000 · ROI +8%</p>
+        </div>
+      </div>
+      <div class="apostle-card">
+        <div class="apostle-number">IV</div>
+        <div class="apostle-content">
+          <h4 data-en="First Love" data-zh="初恋">First Love</h4>
+          <p class="wine-name">Château Lafleur</p>
+          <p>Pomerol · 1994</p>
+          <p class="price">~¥3,500 · ROI +25%</p>
+        </div>
+      </div>
+      <div class="apostle-card">
+        <div class="apostle-number">V</div>
+        <div class="apostle-content">
+          <h4 data-en="Achievement" data-zh="成就感">Achievement</h4>
+          <p class="wine-name">Michel Colin-Deléger, Chevalier-Montrachet Grand Cru</p>
+          <p>Burgundy (White) · 2000</p>
+          <p class="price" style="color:var(--text-secondary)">No circulation · Illiquid</p>
+        </div>
+      </div>
+      <div class="apostle-card">
+        <div class="apostle-number">VI</div>
+        <div class="apostle-content">
+          <h4 data-en="Tenderness" data-zh="温柔">Tenderness</h4>
+          <p class="wine-name">Luciano Sandrone, Barolo Cannubi Boschis</p>
+          <p>Piedmont, Italy · 2001</p>
+          <p class="price">~¥2,200 · ROI +57%</p>
+        </div>
+      </div>
+      <div class="apostle-card">
+        <div class="apostle-number">VII</div>
+        <div class="apostle-content">
+          <h4 data-en="Rest" data-zh="休息">Rest</h4>
+          <p class="wine-name">Château Montrose</p>
+          <p>Saint-Estèphe · 1994</p>
+          <p class="price">~¥2,000 · ROI +33%</p>
+        </div>
+      </div>
+      <div class="apostle-card">
+        <div class="apostle-number">VIII</div>
+        <div class="apostle-content">
+          <h4 data-en="Star Fragment" data-zh="星之碎片">Star Fragment</h4>
+          <p class="wine-name">Chave, Hermitage</p>
+          <p>Northern Rhône · 2000</p>
+          <p class="price">~¥4,500 · ROI +50%</p>
+        </div>
+      </div>
+      <div class="apostle-card">
+        <div class="apostle-number">IX</div>
+        <div class="apostle-content">
+          <h4 data-en="Destiny" data-zh="命运">Destiny</h4>
+          <p class="wine-name">Château Mouton Rothschild</p>
+          <p>Pauillac · 1986</p>
+          <p class="price">~¥7,500 · ROI +50%</p>
+        </div>
+      </div>
+      <div class="apostle-card">
+        <div class="apostle-number">X</div>
+        <div class="apostle-content">
+          <h4 data-en="Communion" data-zh="圣餐">Communion</h4>
+          <p class="wine-name">DRC, Richebourg Grand Cru</p>
+          <p>Burgundy · 2001</p>
+          <p class="price">~¥40,000+ · ROI +167%</p>
+        </div>
+      </div>
+      <div class="apostle-card">
+        <div class="apostle-number">XI</div>
+        <div class="apostle-content">
+          <h4 data-en="Eternity" data-zh="永恒">Eternity</h4>
+          <p class="wine-name">Ferrer Bobet, Selecció Especial</p>
+          <p>Priorat, Spain · 2008</p>
+          <p class="price" style="color:#ff4444">~¥400 · ROI -50%</p>
+        </div>
+      </div>
+      <div class="apostle-card">
+        <div class="apostle-number">XII</div>
+        <div class="apostle-content">
+          <h4 data-en="A Moment, or Eternity" data-zh="是一瞬，也是永恒">A Moment, or Eternity</h4>
+          <p class="wine-name">Château d'Yquem</p>
+          <p>Sauternes · 1976</p>
+          <p class="price">~¥6,300 · ROI +28%</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:3rem;padding:2rem;background:var(--bg-card);border:1px solid var(--accent-gold);border-radius:8px">
+      <h3 style="color:var(--accent-gold)" data-en="The Final Drop" data-zh="神之水滴">The Final Drop</h3>
+      <p data-en="A blank sheet of paper — 'There is no such thing as a perfect wine in this world.'" data-zh="一张白纸——"这世界上本就没有完美之酒"。">A blank sheet of paper — "There is no such thing as a perfect wine in this world."</p>
+    </div>
+  </div>
+</section>
+
+<!-- W.I.N.E.X Section -->
+<section id="winex" class="section">
+  <h2 style="text-align:center;margin-bottom:0.5rem" data-en="W.I.N.E.X Evaluation System" data-zh="W.I.N.E.X 评价体系">W.I.N.E.X Evaluation System</h2>
+  <p style="text-align:center;color:var(--text-secondary);margin-bottom:3rem" data-en="Beyond the 100-point scale — a six-dimensional radar chart reveals wine personality" data-zh="超越100分制——六维雷达图展现葡萄酒的"性格"">Beyond the 100-point scale — a six-dimensional radar chart reveals wine personality</p>
+
+  <div class="grid-2">
+    <div class="radar-container">
+      <svg class="radar-svg" viewBox="0 0 400 400" id="winex-radar">
+        <!-- Background rings -->
+        <g stroke="#333" stroke-width="0.5" fill="none">
+          <polygon points="200,40 338.6,120 338.6,280 200,360 61.4,280 61.4,120" />
+          <polygon points="200,80 304.2,140 304.2,260 200,320 95.8,260 95.8,140" />
+          <polygon points="200,120 269.8,160 269.8,240 200,280 130.2,240 130.2,160" />
+          <polygon points="200,160 235.4,180 235.4,220 200,240 164.6,220 164.6,180" />
+        </g>
+        <!-- Axes -->
+        <g stroke="#555" stroke-width="1">
+          <line x1="200" y1="200" x2="200" y2="40" />
+          <line x1="200" y1="200" x2="338.6" y2="120" />
+          <line x1="200" y1="200" x2="338.6" y2="280" />
+          <line x1="200" y1="200" x2="200" y2="360" />
+          <line x1="200" y1="200" x2="61.4" y2="280" />
+          <line x1="200" y1="200" x2="61.4" y2="120" />
+        </g>
+        <!-- Data polygon (example: Schrader Cab) -->
+        <polygon points="200,56 324.7,128 311.0,256 200,328 103.0,248 75.3,128" fill="rgba(57,255,20,0.15)" stroke="var(--accent-green)" stroke-width="2" />
+        <!-- Labels -->
+        <text x="200" y="25" text-anchor="middle" fill="var(--accent-green)" font-size="14" font-weight="600">W</text>
+        <text x="200" y="38" text-anchor="middle" fill="#888" font-size="9">Weight</text>
+        <text x="360" y="115" text-anchor="middle" fill="var(--accent-green)" font-size="14" font-weight="600">I</text>
+        <text x="360" y="128" text-anchor="middle" fill="#888" font-size="9">Identity</text>
+        <text x="360" y="295" text-anchor="middle" fill="var(--accent-green)" font-size="14" font-weight="600">N</text>
+        <text x="360" y="308" text-anchor="middle" fill="#888" font-size="9">Nuance</text>
+        <text x="200" y="385" text-anchor="middle" fill="var(--accent-green)" font-size="14" font-weight="600">E</text>
+        <text x="200" y="398" text-anchor="middle" fill="#888" font-size="9">Emotion</text>
+        <text x="40" y="295" text-anchor="middle" fill="var(--accent-green)" font-size="14" font-weight="600">X</text>
+        <text x="40" y="308" text-anchor="middle" fill="#888" font-size="9">X-Factor</text>
+        <text x="40" y="115" text-anchor="middle" fill="var(--accent-green)" font-size="14" font-weight="600">B</text>
+        <text x="40" y="128" text-anchor="middle" fill="#888" font-size="9">Balance</text>
+        <!-- Data points -->
+        <circle cx="200" cy="56" r="5" fill="var(--accent-green)" />
+        <circle cx="324.7" cy="128" r="5" fill="var(--accent-green)" />
+        <circle cx="311.0" cy="256" r="5" fill="var(--accent-green)" />
+        <circle cx="200" cy="328" r="5" fill="var(--accent-green)" />
+        <circle cx="103.0" cy="248" r="5" fill="var(--accent-green)" />
+        <circle cx="75.3" cy="128" r="5" fill="var(--accent-green)" />
+      </svg>
+    </div>
+    <div>
+      <h3 data-en="Six Dimensions" data-zh="六个维度">Six Dimensions</h3>
+      <table class="wine-table">
+        <thead>
+          <tr>
+            <th data-en="Dimension" data-zh="维度">Dimension</th>
+            <th data-en="Meaning" data-zh="含义">Meaning</th>
+            <th data-en="Metaphor" data-zh="比喻">Metaphor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>W</strong> — Weight</td>
+            <td data-en="Structure & aging potential" data-zh="骨架与陈年力">Structure & aging potential</td>
+            <td data-en="Skeletal system" data-zh="骨骼系统">Skeletal system</td>
+          </tr>
+          <tr>
+            <td><strong>I</strong> — Identity</td>
+            <td data-en="Terroir purity" data-zh="风土纯粹度">Terroir purity</td>
+            <td data-en="Fingerprint" data-zh="指纹">Fingerprint</td>
+          </tr>
+          <tr>
+            <td><strong>N</strong> — Nuance</td>
+            <td data-en="Complexity & layers" data-zh="复杂度与层次">Complexity & layers</td>
+            <td data-en="Spectrum" data-zh="光谱">Spectrum</td>
+          </tr>
+          <tr>
+            <td><strong>E</strong> — Emotion</td>
+            <td data-en="Emotional resonance / artistry" data-zh="情绪共鸣/艺术性">Emotional resonance / artistry</td>
+            <td data-en="Heartbeat" data-zh="心跳">Heartbeat</td>
+          </tr>
+          <tr>
+            <td><strong>X</strong> — X-Factor</td>
+            <td data-en="Breakthrough index (hidden dimension)" data-zh="破局指数（隐藏维度）">Breakthrough index (hidden dimension)</td>
+            <td data-en="Lightning" data-zh="闪电">Lightning</td>
+          </tr>
+          <tr>
+            <td><strong>B</strong> — Balance</td>
+            <td data-en="Harmony of all elements" data-zh="平衡度">Harmony of all elements</td>
+            <td data-en="Harmony" data-zh="和声">Harmony</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Lexicon Section -->
+<section id="lexicon" class="section-alt">
+  <div class="section-inner">
+    <h2 style="text-align:center;margin-bottom:3rem" data-en="Wine Tasting Lexicon" data-zh="品鉴词库">Wine Tasting Lexicon</h2>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('aromas')" data-en="Aromas" data-zh="香气">Aromas</button>
+      <button class="tab" onclick="switchTab('tannins')" data-en="Tannins" data-zh="单宁">Tannins</button>
+      <button class="tab" onclick="switchTab('narrative')" data-en="Narrative" data-zh="叙事">Narrative</button>
+      <button class="tab" onclick="switchTab('metaphysics')" data-en="Metaphysics" data-zh="形而上学">Metaphysics</button>
+    </div>
+
+    <!-- Aromas Tab -->
+    <div id="tab-aromas" class="tab-content active">
+      <div class="lexicon-category">
+        <h3 data-en="Primary Aromas (Varietal / Terroir)" data-zh="一类香气（品种/风土）">Primary Aromas (Varietal / Terroir)</h3>
+        <div>
+          <span class="lexicon-term">Blackcurrant 黑醋栗</span>
+          <span class="lexicon-term">Black Cherry 黑樱桃</span>
+          <span class="lexicon-term">Violet 紫罗兰</span>
+          <span class="lexicon-term">Raspberry 覆盆子</span>
+          <span class="lexicon-term">Citrus 柑橘</span>
+          <span class="lexicon-term">Green Apple 青苹果</span>
+          <span class="lexicon-term">Passion Fruit 百香果</span>
+          <span class="lexicon-term">Eucalyptus 桉树叶</span>
+          <span class="lexicon-term">Graphite 石墨</span>
+          <span class="lexicon-term">Wet Stone 湿石</span>
+          <span class="lexicon-term">Flint 燧石</span>
+          <span class="lexicon-term">Herbaceous 草本</span>
+          <span class="lexicon-term">Bell Pepper 青椒</span>
+          <span class="lexicon-term">Lavender 薰衣草</span>
+        </div>
+      </div>
+      <div class="lexicon-category">
+        <h3 data-en="Secondary Aromas (Winemaking)" data-zh="二类香气（酿造）">Secondary Aromas (Winemaking)</h3>
+        <div>
+          <span class="lexicon-term">Vanilla 香草</span>
+          <span class="lexicon-term">Toast 烤面包</span>
+          <span class="lexicon-term">Cedar 雪松</span>
+          <span class="lexicon-term">Coffee 咖啡</span>
+          <span class="lexicon-term">Chocolate 巧克力</span>
+          <span class="lexicon-term">Butter 黄油</span>
+          <span class="lexicon-term">Brioche 布里欧修</span>
+          <span class="lexicon-term">Smoke 烟熏</span>
+          <span class="lexicon-term">Clove 丁香</span>
+          <span class="lexicon-term">Cinnamon 肉桂</span>
+        </div>
+      </div>
+      <div class="lexicon-category">
+        <h3 data-en="Tertiary Aromas (Aging)" data-zh="三类香气（陈年）">Tertiary Aromas (Aging)</h3>
+        <div>
+          <span class="lexicon-term">Tobacco 烟草</span>
+          <span class="lexicon-term">Forest Floor 森林地表</span>
+          <span class="lexicon-term">Leather 皮革</span>
+          <span class="lexicon-term">Mushroom 蘑菇</span>
+          <span class="lexicon-term">Cigar Box 雪茄盒</span>
+          <span class="lexicon-term">Truffle 松露</span>
+          <span class="lexicon-term">Dried Fig 无花果干</span>
+          <span class="lexicon-term">Potpourri 干花香</span>
+          <span class="lexicon-term">Petrol 汽油</span>
+          <span class="lexicon-term">Noble Decay 高贵腐朽</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tannins Tab -->
+    <div id="tab-tannins" class="tab-content">
+      <h3 data-en="Tannin Texture Ladder — 18 Levels" data-zh="单宁质地阶梯 — 18级">Tannin Texture Ladder — 18 Levels</h3>
+      <div class="tannin-ladder">
+        <div class="tannin-step defect"><span>1. Harsh 粗糙</span><span class="text-muted" style="margin-left:auto">Defect level</span></div>
+        <div class="tannin-step defect"><span>2. Aggressive 侵略性</span><span class="text-muted" style="margin-left:auto">Defect level</span></div>
+        <div class="tannin-step defect"><span>3. Green 青涩</span><span class="text-muted" style="margin-left:auto">Defect level</span></div>
+        <div class="tannin-step rugged"><span>4. Rustic 乡土</span><span class="text-muted" style="margin-left:auto">Mountain level</span></div>
+        <div class="tannin-step rugged"><span>5. Firm 坚实</span><span class="text-muted" style="margin-left:auto">Mountain level</span></div>
+        <div class="tannin-step rugged"><span>6. Grippy 抓口</span><span class="text-muted" style="margin-left:auto">Mountain level</span></div>
+        <div class="tannin-step rugged"><span>7. Chewy 耐嚼</span><span class="text-muted" style="margin-left:auto">Mountain level</span></div>
+        <div class="tannin-step modern"><span>8. Grainy 颗粒感</span><span class="text-muted" style="margin-left:auto">Modern level</span></div>
+        <div class="tannin-step modern"><span>9. Sandy 砂砾感</span><span class="text-muted" style="margin-left:auto">Modern level</span></div>
+        <div class="tannin-step modern"><span>10. Supple 柔顺</span><span class="text-muted" style="margin-left:auto">Modern level</span></div>
+        <div class="tannin-step elegant"><span>11. Fine-grained 细腻</span><span class="text-muted" style="margin-left:auto">Elegant level</span></div>
+        <div class="tannin-step elegant"><span>12. Silky 丝滑</span><span class="text-muted" style="margin-left:auto">Elegant level</span></div>
+        <div class="tannin-step elegant"><span>13. Polished 抛光</span><span class="text-muted" style="margin-left:auto">Elegant level</span></div>
+        <div class="tannin-step elegant"><span>14. Velvet 天鹅绒</span><span class="text-muted" style="margin-left:auto">Elegant level</span></div>
+        <div class="tannin-step extreme"><span>15. Cashmere 羊绒</span><span class="text-muted" style="margin-left:auto">Extreme level</span></div>
+        <div class="tannin-step extreme"><span>16. Liquid Silk 液态丝绸</span><span class="text-muted" style="margin-left:auto">Extreme level</span></div>
+        <div class="tannin-step old"><span>17. Melted 融化</span><span class="text-muted" style="margin-left:auto">Old wine level</span></div>
+        <div class="tannin-step old"><span>18. Resolved 化解</span><span class="text-muted" style="margin-left:auto">Old wine level</span></div>
+      </div>
+    </div>
+
+    <!-- Narrative Tab -->
+    <div id="tab-narrative" class="tab-content">
+      <h3 data-en="Narrative Tasting Framework — L1 to L4" data-zh="叙事性品鉴框架 — L1 至 L4">Narrative Tasting Framework — L1 to L4</h3>
+      <table class="wine-table">
+        <thead>
+          <tr>
+            <th data-en="Level" data-zh="层级">Level</th>
+            <th data-en="Name" data-zh="名称">Name</th>
+            <th data-en="Description" data-zh="说明">Description</th>
+            <th data-en="Example" data-zh="示例">Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>L1</strong></td>
+            <td data-en="Scene" data-zh="场景">Scene</td>
+            <td data-en="Visual / spatial imagery" data-zh="酒唤醒的画面/空间">Visual / spatial imagery</td>
+            <td data-en="&quot;Standing in a morning vineyard, dew wet on the hem&quot;" data-zh="&quot;站在清晨的葡萄园，露水打湿了裙摆&quot;">"Standing in a morning vineyard, dew wet on the hem"</td>
+          </tr>
+          <tr>
+            <td><strong>L2</strong></td>
+            <td data-en="Emotion" data-zh="情感">Emotion</td>
+            <td data-en="Emotions / memories evoked" data-zh="酒唤起的情绪/记忆">Emotions / memories evoked</td>
+            <td data-en="&quot;A finish as warm as a mother's embrace&quot;" data-zh="&quot;像母亲拥抱般温暖的收尾&quot;">"A finish as warm as a mother's embrace"</td>
+          </tr>
+          <tr>
+            <td><strong>L3</strong></td>
+            <td data-en="Personification" data-zh="拟人">Personification</td>
+            <td data-en="Wine as a character" data-zh="将酒赋予人格特质">Wine as a character</td>
+            <td data-en="&quot;An emperor in bespoke tailoring, with precise muscle lines&quot;" data-zh="&quot;一位穿着高级定制西装、肌肉线条精悍的帝王&quot;">"An emperor in bespoke tailoring, with precise muscle lines"</td>
+          </tr>
+          <tr>
+            <td><strong>L4</strong></td>
+            <td data-en="Metaphor" data-zh="隐喻">Metaphor</td>
+            <td data-en="Spiritual expression beyond matter" data-zh="超越物质的精神表达">Spiritual expression beyond matter</td>
+            <td data-en="&quot;A liquid kaleidoscope, the convergence of moment, person, and place&quot;" data-zh="&quot;流动的万花筒，时刻、人物与地点的交汇&quot;">"A liquid kaleidoscope, the convergence of moment, person, and place"</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Metaphysics Tab -->
+    <div id="tab-metaphysics" class="tab-content">
+      <h3 data-en="Metaphysical Lexicon — Three-Stage Dimensional Strike" data-zh="形而上学词库 — 三阶降维打击">Metaphysical Lexicon — Three-Stage Dimensional Strike</h3>
+      <div class="lexicon-category">
+        <h4 data-en="Stage 1: Martial Arts / Concrete" data-zh="第一阶：武侠化/具象化">Stage 1: Martial Arts / Concrete</h4>
+        <div>
+          <span class="lexicon-term">酸度 → 剑骨 Sword-Bone Acidity</span>
+          <span class="lexicon-term">单宁 → 天鹅绒矩阵 Velvet Matrix</span>
+          <span class="lexicon-term">酒体 → 液态重力 Liquid Gravity</span>
+          <span class="lexicon-term">余味 → 时间的回音 Echo of Time</span>
+          <span class="lexicon-term">香气 → 深海的刀锋 Blade from the Deep</span>
+        </div>
+      </div>
+      <div class="lexicon-category">
+        <h4 data-en="Stage 2: Time & Aroma Metaphysics" data-zh="第二阶：时间与香气的玄学化">Stage 2: Time & Aroma Metaphysics</h4>
+        <div>
+          <span class="lexicon-term">时间的标本 Specimen of Time</span>
+          <span class="lexicon-term">丝绸之路的篝火 Campfire on the Silk Road</span>
+          <span class="lexicon-term">知性之酒 Intellectual Wine</span>
+          <span class="lexicon-term">对弈的灵魂 Dueling Souls</span>
+        </div>
+      </div>
+      <div class="lexicon-category">
+        <h4 data-en="Stage 3: Ultimate Metaphysics" data-zh="第三阶：形而上学与终极奥义">Stage 3: Ultimate Metaphysics</h4>
+        <div>
+          <span class="lexicon-term">流动的万花筒 Liquid Kaleidoscope</span>
+          <span class="lexicon-term">不可分割的圆 The Indivisible Circle</span>
+          <span class="lexicon-term">灵魂的对弈 Soul's Chess Game</span>
+          <span class="lexicon-term">永恒的刹那 Eternal Instant</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Compare Section -->
+<section id="compare" class="section">
+  <h2 style="text-align:center;margin-bottom:3rem" data-en="Wine Duel" data-zh="双酒对决">Wine Duel</h2>
+  <div class="search-container">
+    <div class="search-box">
+      <div class="search-row">
+        <div class="search-field">
+          <label data-en="Wine A" data-zh="酒款 A">Wine A</label>
+          <input type="text" id="duel-wine-a" placeholder="e.g. Schrader RBS 2016">
+        </div>
+        <div class="search-field">
+          <label data-en="Wine B" data-zh="酒款 B">Wine B</label>
+          <input type="text" id="duel-wine-b" placeholder="e.g. Dominus 2016">
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="startDuel()" data-en="Start Duel" data-zh="开始对决" style="width:100%;padding:1rem">Start Duel</button>
+    </div>
+    <div id="duel-result" style="display:none;margin-top:2rem"></div>
+  </div>
+</section>
+
+<!-- Investment Section -->
+<section id="investment" class="section-alt">
+  <div class="section-inner">
+    <h2 style="text-align:center;margin-bottom:3rem" data-en="Investment Intelligence" data-zh="投资情报">Investment Intelligence</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3 data-en="Investment Grade Wines" data-zh="投资级酒款">Investment Grade Wines</h3>
+        <p class="text-muted" data-en="AAA / AA rated wines with scarcity + liquidity" data-zh="稀缺+流动性的AAA/AA评级酒款">AAA / AA rated wines with scarcity + liquidity</p>
+        <p style="color:var(--accent-green);font-size:2rem;font-weight:700;margin-top:1rem">47</p>
+      </div>
+      <div class="card">
+        <h3 data-en="Scarcity-Driven" data-zh="稀缺性驱动">Scarcity-Driven</h3>
+        <p class="text-muted" data-en="Production < 5,000 bottles annually" data-zh="年产量低于5,000瓶">Production &lt; 5,000 bottles annually</p>
+        <p style="color:var(--accent-green);font-size:2rem;font-weight:700;margin-top:1rem">23</p>
+      </div>
+      <div class="card">
+        <h3 data-en="Cultural Premium" data-zh="文化溢价">Cultural Premium</h3>
+        <p class="text-muted" data-en="Premium > 30% from cultural events" data-zh="文化事件带来的溢价超过30%">Premium &gt; 30% from cultural events</p>
+        <p style="color:var(--accent-green);font-size:2rem;font-weight:700;margin-top:1rem">12</p>
+      </div>
+    </div>
+    <div style="margin-top:3rem">
+      <h3 data-en="Investment Rating Model — Six-Factor Framework" data-zh="投资评级模型 — 六因子框架">Investment Rating Model — Six-Factor Framework</h3>
+      <table class="wine-table">
+        <thead>
+          <tr>
+            <th data-en="Factor" data-zh="因子">Factor</th>
+            <th data-en="Weight" data-zh="权重">Weight</th>
+            <th data-en="Metrics" data-zh="量化指标">Metrics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Scarcity Index</td><td>25%</td><td data-en="Annual production (bottles), vineyard area (ha)" data-zh="年产量(瓶)、葡萄园面积(ha)">Annual production (bottles), vineyard area (ha)</td></tr>
+          <tr><td>Brand Strength</td><td>20%</td><td data-en="Liv-ex ranking, search volume, auction frequency" data-zh="Liv-ex交易排名、搜索量、拍卖出现频率">Liv-ex ranking, search volume, auction frequency</td></tr>
+          <tr><td>Critic Consensus</td><td>15%</td><td data-en="Weighted average (RP/JR/VM), perfect score count" data-zh="加权平均分、满分次数">Weighted average (RP/JR/VM), perfect score count</td></tr>
+          <tr><td>Cultural Premium</td><td>15%</td><td data-en="Media mentions, social heat, Asian auction premium" data-zh="影视提及、社交媒体热度、亚洲拍卖溢价率">Media mentions, social heat, Asian auction premium</td></tr>
+          <tr><td>Vintage Quality</td><td>10%</td><td data-en="Vintage rating, climate data" data-zh="年份评分、气候数据">Vintage rating, climate data</td></tr>
+          <tr><td>Liquidity Score</td><td>15%</td><td data-en="Bid-ask spread, monthly volume, auction fill rate" data-zh="买卖价差、月交易量、拍卖成交率">Bid-ask spread, monthly volume, auction fill rate</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="#analyze" data-en="Analyze" data-zh="品鉴分析">Analyze</a>
+    <a href="#summits" data-en="24 Summits" data-zh="24座风土">24 Summits</a>
+    <a href="#apostles" data-en="Apostles" data-zh="十二使徒">Apostles</a>
+    <a href="#winex" data-en="W.I.N.E.X" data-zh="W.I.N.E.X">W.I.N.E.X</a>
+    <a href="#lexicon" data-en="Lexicon" data-zh="词库">Lexicon</a>
+    <a href="#investment" data-en="Investment" data-zh="投资">Investment</a>
+    <a href="#" data-en="API" data-zh="API">API</a>
+  </div>
+  <p class="text-muted" style="margin-top:1rem">© 2026 Wine24 — Global Wine Intelligence Platform</p>
+  <p class="text-muted" style="font-size:0.8rem;margin-top:0.5rem" data-en="Beyond the 100-point scale. Beyond Wine-Searcher. Beyond Vivino." data-zh="超越100分制。超越Wine-Searcher。超越Vivino。">Beyond the 100-point scale. Beyond Wine-Searcher. Beyond Vivino.</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
