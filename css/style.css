@@ -1,16 +1,18 @@
 /* Wine24.com - Global Wine Intelligence Platform */
 :root {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #1a1a1a;
-  --bg-card: #222;
-  --text-primary: #f5f5f5;
-  --text-secondary: #a0a0a0;
-  --accent-green: #39FF14;
-  --accent-gold: #D4AF37;
-  --accent-red: #8B0000;
-  --accent-purple: #6B4C9A;
-  --border: #333;
-  --gradient-hero: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F5F7FA;
+  --bg-card: #FFFFFF;
+  --text-primary: #1a1a2e;
+  --text-secondary: #6B7280;
+  --accent-green: #0097B2;
+  --accent-gold: #002D72;
+  --accent-red: #DC2626;
+  --accent-purple: #002D72;
+  --border: #E5E7EB;
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  --gradient-hero: linear-gradient(135deg, #002D72 0%, #0097B2 100%);
+  --gradient-btn: linear-gradient(135deg, #002D72 0%, #0097B2 100%);
 }
 
 * {
@@ -48,13 +50,14 @@ h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(10,10,10,0.95);
+  background: rgba(255,255,255,0.97);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
 }
 
 .nav-logo {
@@ -127,7 +130,7 @@ h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
   transform: translate(-50%, -50%);
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(57,255,20,0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0,151,178,0.08) 0%, transparent 70%);
   border-radius: 50%;
 }
 
@@ -135,11 +138,12 @@ h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
   margin-bottom: 1rem;
   position: relative;
   z-index: 1;
+  color: #FFFFFF;
 }
 
 .hero p {
   font-size: 1.2rem;
-  color: var(--text-secondary);
+  color: rgba(255,255,255,0.85);
   max-width: 600px;
   margin-bottom: 2rem;
   position: relative;
@@ -166,23 +170,23 @@ h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
 }
 
 .btn-primary {
-  background: var(--accent-green);
-  color: var(--bg-primary);
+  background: var(--gradient-btn);
+  color: #FFFFFF;
 }
 
 .btn-primary:hover {
-  background: #2de012;
   transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,151,178,0.3);
 }
 
 .btn-outline {
   background: transparent;
-  border: 1px solid var(--accent-green);
-  color: var(--accent-green);
+  border: 2px solid #FFFFFF;
+  color: #FFFFFF;
 }
 
 .btn-outline:hover {
-  background: rgba(57,255,20,0.1);
+  background: rgba(255,255,255,0.15);
 }
 
 /* Search Engine */
@@ -204,6 +208,7 @@ h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
   padding: 2rem;
   border-radius: 12px;
   border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
 }
 
 .search-row {
@@ -279,13 +284,15 @@ h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 1.5rem;
+  box-shadow: var(--shadow-card);
   transition: all 0.3s;
 }
 
 .card:hover {
   border-color: var(--accent-green);
+  box-shadow: 0 8px 25px rgba(0,151,178,0.12);
   transform: translateY(-4px);
 }
 
@@ -348,7 +355,7 @@ h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
 }
 
 .wine-table tr:hover {
-  background: rgba(57,255,20,0.03);
+  background: rgba(0,151,178,0.04);
 }
 
 /* Apostles Grid */
@@ -361,13 +368,15 @@ h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
 .apostle-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s;
+  box-shadow: var(--shadow-card);
 }
 
 .apostle-card:hover {
   border-color: var(--accent-gold);
+  box-shadow: 0 8px 25px rgba(0,45,114,0.1);
 }
 
 .apostle-number {
@@ -406,6 +415,7 @@ h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
   border-radius: 12px;
   padding: 2rem;
   margin-top: 2rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
 }
 
 .analysis-result.active {
@@ -474,8 +484,9 @@ h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
 
 /* Footer */
 .footer {
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border);
+  background: var(--accent-gold);
+  color: rgba(255,255,255,0.9);
+  border-top: none;
   padding: 3rem 2rem;
   text-align: center;
 }
@@ -489,7 +500,7 @@ h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
 }
 
 .footer-links a {
-  color: var(--text-secondary);
+  color: rgba(255,255,255,0.75);
   text-decoration: none;
   font-size: 0.9rem;
 }
@@ -567,7 +578,7 @@ h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
 }
 
 .badge-green {
-  background: rgba(57,255,20,0.2);
+  background: rgba(0,151,178,0.15);
   color: var(--accent-green);
 }
 
