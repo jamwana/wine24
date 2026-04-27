@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Gold gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#C5A028"/>
+      <stop offset="100%" stop-color="#B8960F"/>
+    </linearGradient>
+
+    <!-- Arc paths for ring text -->
+    <path id="topArc" d="M 110,256 A 146,146 0 0,1 402,256" fill="none"/>
+    <path id="bottomArc" d="M 110,256 A 146,146 0 0,0 402,256" fill="none"/>
+  </defs>
+
+  <!-- Outer navy ring -->
+  <circle cx="256" cy="256" r="160" fill="#002D72"/>
+
+  <!-- White text area between rings -->
+  <circle cx="256" cy="256" r="152" fill="#FFFFFF"/>
+
+  <!-- Top text on ring -->
+  <text font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#002D72" text-anchor="middle" letter-spacing="2">
+    <textPath href="#topArc" startOffset="50%">PREMIUM GLOBAL WINE DATABASE</textPath>
+  </text>
+
+  <!-- Bottom text on ring -->
+  <text font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#002D72" text-anchor="middle" letter-spacing="2">
+    <textPath href="#bottomArc" startOffset="50%">TRUSTED AUTHORITY</textPath>
+  </text>
+
+  <!-- Gold laurel wreath outer circle -->
+  <circle cx="256" cy="256" r="118" fill="none" stroke="url(#goldGrad)" stroke-width="4"/>
+  <circle cx="256" cy="256" r="114" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
+
+  <!-- Laurels - left side leaves -->
+  <g fill="url(#goldGrad)" transform="translate(138,256) rotate(-90)">
+    <path d="M0,0 C-8,-15 -15,-25 -20,-40 C-15,-30 -5,-20 0,0Z"/>
+    <path d="M0,-40 C-8,-55 -15,-65 -20,-80 C-15,-70 -5,-60 0,-40Z"/>
+    <path d="M0,-80 C-8,-95 -15,-105 -20,-120 C-15,-110 -5,-100 0,-80Z"/>
+  </g>
+
+  <!-- Laurels - right side leaves -->
+  <g fill="url(#goldGrad)" transform="translate(374,256) rotate(90)">
+    <path d="M0,0 C-8,-15 -15,-25 -20,-40 C-15,-30 -5,-20 0,0Z"/>
+    <path d="M0,-40 C-8,-55 -15,-65 -20,-80 C-15,-70 -5,-60 0,-40Z"/>
+    <path d="M0,-80 C-8,-95 -15,-105 -20,-120 C-15,-110 -5,-100 0,-80Z"/>
+  </g>
+
+  <!-- Grape cluster at bottom -->
+  <g transform="translate(256,370)">
+    <circle cx="0" cy="0" r="5" fill="url(#goldGrad)"/>
+    <circle cx="-6" cy="-5" r="5" fill="url(#goldGrad)"/>
+    <circle cx="6" cy="-5" r="5" fill="url(#goldGrad)"/>
+    <circle cx="-3" cy="-10" r="5" fill="url(#goldGrad)"/>
+    <circle cx="3" cy="-10" r="5" fill="url(#goldGrad)"/>
+    <circle cx="0" cy="5" r="5" fill="url(#goldGrad)"/>
+    <circle cx="-6" cy="5" r="5" fill="url(#goldGrad)"/>
+    <circle cx="6" cy="5" r="5" fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- Center monogram: W24 intertwined in gold -->
+  <text x="256" y="290" font-family="'Georgia', 'Times New Roman', serif" font-size="100" font-weight="bold" fill="url(#goldGrad)" text-anchor="middle">W24</text>
+</svg>
